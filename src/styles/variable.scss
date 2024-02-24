@@ -1,0 +1,13 @@
+@mixin btnTodo($cl: red){
+    padding: 2.5px 7px;
+    border-radius: 100vh;
+    color: $cl;
+    border: 1px solid $cl;
+    user-select: none;
+    cursor: pointer;
+}
+@mixin btnTodoHover($cl: red){
+    background-color: $cl;
+    color: white;
+    transition: ease .3s all;
+}
