@@ -86,7 +86,7 @@ function App(props) {
         <div className="AppOne">
             <div className='App-input'>
                 <img src='https://i.pinimg.com/originals/2b/6a/43/2b6a431ec6a551cd2d11a47102daefed.png' alt='avatar' />
-                <input type='text' ref={messageOne} onKeyDown={(e) => addEnterCMTOne(e)}/>
+                <input type='text' ref={messageOne} onKeyDown={(e) => addEnterCMTOne(e)} placeholder='Chat'/>
                 <section className="botao-1" onClick={() => addCMTOne()}>
                     <button>
                         <div className="icone__flexinha">
@@ -113,7 +113,7 @@ function App(props) {
                                 onChange={(e) => setEditerComment(e.target.value)}
                             /> 
                             : 
-                            <span>{item.comment}</span>}
+                            <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
                             <div className="App-list_svg">
                                 <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
                                     <FontAwesomeIcon icon={faPenToSquare} />
@@ -142,7 +142,7 @@ function App(props) {
                         <span>Send</span>
                     </button>
                 </section>
-                <input type='text' ref={messageTwo} onKeyDown={(e) => addEnterCMTTwo(e)}/>
+                <input type='text' ref={messageTwo} onKeyDown={(e) => addEnterCMTTwo(e)} placeholder='Chat'/>
                 <img src='https://i.pinimg.com/originals/63/83/03/6383033aea7cbbe0845761e5f8ed0da3.png' alt='avatar' />
             </div>
         </div>
