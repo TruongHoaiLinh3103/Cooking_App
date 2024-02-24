@@ -22,7 +22,8 @@ function App(props) {
                 id: Math.random() * 10000,
                 comment: messageOne.current.value,
                 user: "Anikey"
-            })
+            });
+            messageOne.current.value = "";
         }
     }
     const addEnterCMTOne = (e) => {
@@ -35,6 +36,7 @@ function App(props) {
                     comment: messageOne.current.value,
                     user: "Anikey"
                 })
+                messageOne.current.value = "";
             }
         }
     }
@@ -46,7 +48,8 @@ function App(props) {
                 id: Math.random() * 10000,
                 comment: messageTwo.current.value,
                 user: "SanSan"
-            })
+            });
+            messageTwo.current.value = "";
         }
     }
     const addEnterCMTTwo = (e) => {
@@ -58,7 +61,8 @@ function App(props) {
                     id: Math.random() * 10000,
                     comment: messageTwo.current.value,
                     user: "SanSan"
-                })
+                });
+                messageTwo.current.value = "";
             }
         }
     }
@@ -106,23 +110,45 @@ function App(props) {
             <ul className="App-list">
                 {props.dataTodo.map((item) => {
                     return(
-                        <li key={item.id}>
-                            {inputComment === item.id ? 
-                            <textarea value={editerComment} 
-                                onKeyDown={(e) => editEnterCMT(e, item)}
-                                onChange={(e) => setEditerComment(e.target.value)}
-                            /> 
-                            : 
-                            <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
-                            <div className="App-list_svg">
-                                <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
-                                    <FontAwesomeIcon icon={faPenToSquare} />
-                                </div>
-                                <div className="App-list_svg__delete" onClick={() => deleteCMT(item)}>
-                                    <FontAwesomeIcon icon={faTrashCan} />
-                                </div>
-                            </div>
-                        </li>
+                        <>
+                            {item.user === "Anikey" ?
+                                <li key={item.id}>
+                                    {inputComment === item.id ? 
+                                    <textarea value={editerComment} 
+                                        onKeyDown={(e) => editEnterCMT(e, item)}
+                                        onChange={(e) => setEditerComment(e.target.value)}
+                                    /> 
+                                    : 
+                                    <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
+                                    <div className="App-list_svg">
+                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
+                                            <FontAwesomeIcon icon={faPenToSquare} />
+                                        </div>
+                                        <div className="App-list_svg__delete" onClick={() => deleteCMT(item)}>
+                                            <FontAwesomeIcon icon={faTrashCan} />
+                                        </div>
+                                    </div>
+                                </li>
+                                :
+                                <li key={item.id}>
+                                    <div className="App-list_svg">
+                                        <div className="App-list_svg__delete" onClick={() => deleteCMT(item)}>
+                                            <FontAwesomeIcon icon={faTrashCan} />
+                                        </div>
+                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
+                                            <FontAwesomeIcon icon={faPenToSquare} />
+                                        </div>
+                                    </div>
+                                    {inputComment === item.id ? 
+                                    <textarea value={editerComment} 
+                                        onKeyDown={(e) => editEnterCMT(e, item)}
+                                        onChange={(e) => setEditerComment(e.target.value)}
+                                    /> 
+                                    : 
+                                    <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
+                                </li>
+                            }
+                        </>
                     )
                 })}
             </ul>
