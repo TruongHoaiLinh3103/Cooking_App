@@ -87,6 +87,7 @@ function App(props) {
     }
   return (
     <div className='Body'>
+    <img className='Body_img' src='https://i.pinimg.com/originals/f6/08/73/f608739147b6f123d3c96dbb6cdcc1bc.jpg' alt='background'/>
         <div className="AppOne">
             <div className='App-input'>
                 <img src='https://i.pinimg.com/originals/2b/6a/43/2b6a431ec6a551cd2d11a47102daefed.png' alt='avatar' />
