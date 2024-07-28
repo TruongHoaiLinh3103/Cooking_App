@@ -1,5 +1,5 @@
 const initState = {
-    chat: [],
+    chat: []
 }
 const rootTodo = (state = initState, action) => {
     switch(action.type){
@@ -19,7 +19,7 @@ const rootTodo = (state = initState, action) => {
             let chats = {id: action.payload.id, comment:action.payload.comment, user: action.payload.user}
             return{
                 ...state, chat:[...state.chat, chats]
-            } 
+            }
         default:
             return state
     }

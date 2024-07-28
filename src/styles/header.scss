@@ -1,0 +1,42 @@
+.Header{
+    height: 70px;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    padding: 15px 0px;
+    .Header-Sort{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 1;
+        input{
+            flex: 1;
+            padding: 5px 0px 5px 10px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+        }
+    }
+    span{
+        color: black;
+        padding: 5px 10px;
+        background-color: white;
+        border-radius: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgb(79, 179, 215);
+        cursor: pointer;
+        margin: 0px 10px;
+        &:nth-child(2){
+            margin-left: 0px;
+        }
+        i{
+            color: rgb(205, 214, 155);
+            font-size: 20px;
+        }
+    }
+}
