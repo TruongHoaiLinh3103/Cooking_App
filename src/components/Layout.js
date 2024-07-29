@@ -5,6 +5,8 @@ import { Pagination } from '@mui/material';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { EDIT__PAGE } from '../redux/reduccer/rootPage';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import ic from "../assets/images/notCooking.png"
 
 const Layout = () => {
     const [max, setMax] = useState(() => {
@@ -40,7 +42,12 @@ const Layout = () => {
     return (
         <div style={{width: "100%", height: "100%"}}>
             <Header setLoot={setLoot}/>
-            {data.length === 0 ? <h2 style={{display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400, fontSize: "20px", textAlign: "center"}}>Không có công thức nào!</h2> :
+            {data.length === 0 ? 
+                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "70px", flexDirection: "column"}}>
+                    <h2 style={{fontWeight: 400, fontSize: "20px", textAlign: "center", margin: "0px 10px", position: "relative"}}>Không có công thức nào!</h2>
+                    <LazyLoadImage src={ic} alt="404!" width={200} height={200} style={{position: "absolute", top: "2px"}}/>
+                </div>
+             :
                 <>
                     <PageData data={data}/>
                     <div style={{display: "flex", alignItems: "center", justifyContent: "center", height: "70px"}}>
