@@ -4,26 +4,29 @@ import '../styles/App.scss';
 import '../styles/botao-1.scss';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { useRef, useState } from 'react';
-import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../redux/action/actionTodo';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { EDIT__USER } from '../redux/reduccer/rootPage';
+import { ADD__COMMENT, DELETE__COMMENT, EDIT__COMMENT } from '../redux/reduccer/rootTodo';
 
-function Chat(props) {
+function Chat() {
     const messageOne = useRef(null);
     const messageTwo = useRef(null);
     const [inputComment, setInputComment] = useState(0);
     const [editerComment, setEditerComment] = useState("");
+    const dispatch = useDispatch();
     const router = useNavigate();
+    const dataTodo = useSelector((state) => state.todoState.chat);
     //Add
     const addCMTOne = () => {
         if(messageOne.current.value === ""){
             messageOne.current.focus();
         }else{
-            props.addTodo({
+            dispatch(ADD__COMMENT({
                 id: Math.random() * 10000,
                 comment: messageOne.current.value,
                 user: "Anikey"
-            });
+            }));
             messageOne.current.value = "";
         }
     }
@@ -32,11 +35,11 @@ function Chat(props) {
             if(messageOne.current.value === ""){
                 messageOne.current.focus();
             }else{
-                props.addTodo({
+                dispatch(ADD__COMMENT({
                     id: Math.random() * 10000,
                     comment: messageOne.current.value,
                     user: "Anikey"
-                })
+                }))
                 messageOne.current.value = "";
             }
         }
@@ -45,11 +48,11 @@ function Chat(props) {
         if(messageTwo.current.value === ""){
             messageTwo.current.focus();
         }else{
-            props.addTodo({
+            dispatch(ADD__COMMENT({
                 id: Math.random() * 10000,
                 comment: messageTwo.current.value,
                 user: "SanSan"
-            });
+            }));
             messageTwo.current.value = "";
         }
     }
@@ -58,11 +61,11 @@ function Chat(props) {
             if(messageTwo.current.value === ""){
                 messageTwo.current.focus();
             }else{
-                props.addTodo({
+                dispatch(ADD__COMMENT({
                     id: Math.random() * 10000,
                     comment: messageTwo.current.value,
                     user: "SanSan"
-                });
+                }));
                 messageTwo.current.value = "";
             }
         }
@@ -74,25 +77,33 @@ function Chat(props) {
     }
     const editEnterCMT = (e, item) => {
         if(e.which === 13) {
-            props.editTodo({
+            dispatch(EDIT__COMMENT({
                 id: item.id,
                 comment: editerComment,
                 user: item.user
-            });
+            }));
             setInputComment(0);
         }
     }
     //Delete
     const deleteCMT = (item) => {
-        props.deleteTodo(item)
+        dispatch(DELETE__COMMENT(item))
+    }
+
+    const handleCookingOne = () => {
+        dispatch(EDIT__USER("Anikey"))
+        router("/cooking");
+    }
+    const handleCookingTwo = () => {
+        dispatch(EDIT__USER("SanSan"))
+        router("/cooking");
     }
 
   return (
     <div className='Body'>
-    <img className='Body_img' src='https://i.pinimg.com/originals/f6/08/73/f608739147b6f123d3c96dbb6cdcc1bc.jpg' alt='background'/>
         <div className="AppOne">
             <div className='App-input'>
-                <img src='https://i.pinimg.com/originals/2b/6a/43/2b6a431ec6a551cd2d11a47102daefed.png' alt='avatar' onClick={() => router("/cooking")}/>
+                <img src='https://i.pinimg.com/originals/2b/6a/43/2b6a431ec6a551cd2d11a47102daefed.png' alt='avatar' onClick={() => handleCookingOne()}/>
                 <input type='text' ref={messageOne} onKeyDown={(e) => addEnterCMTOne(e)} placeholder='Chat'/>
                 <section className="botao-1" onClick={() => addCMTOne()}>
                     <button>
@@ -111,7 +122,7 @@ function Chat(props) {
         </div>
         <div className='App-center'>
             <ul className="App-list">
-                {props.dataTodo.map((item) => {
+                {dataTodo.map((item) => {
                     return(
                         <div key={item.id} style={{marginTop: "10px"}}>
                             {item.user === "Anikey" ?
@@ -172,11 +183,11 @@ function Chat(props) {
                     </button>
                 </section>
                 <input type='text' ref={messageTwo} onKeyDown={(e) => addEnterCMTTwo(e)} placeholder='Chat'/>
-                <img src='https://i.pinimg.com/originals/63/83/03/6383033aea7cbbe0845761e5f8ed0da3.png' alt='avatar' onClick={() => router("/cooking")}/>
+                <img src='https://i.pinimg.com/originals/63/83/03/6383033aea7cbbe0845761e5f8ed0da3.png' alt='avatar' onClick={() => handleCookingTwo()}/>
             </div>
         </div>
     </div>
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default Chat;

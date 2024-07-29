@@ -2,9 +2,25 @@ import "../styles/pagedata.scss";
 import "../styles/botao-1.scss";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { memo } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { ADD__COMMENT } from "../redux/reduccer/rootTodo";
 
-const PageData = ({ data }) => {
+const PageData = ({ data }, props ) => {
+    const user = useSelector((state) => state.page.user);
+    const dispatch = useDispatch();
+    const router = useNavigate();
     
+    const handleChat = (item) => {
+        dispatch(ADD__COMMENT({
+            id: item.id,
+            comment: item.name,
+            user: user,
+            img: item.img,
+            nguyenlieu: item.nguyenlieu
+        }));
+        router("/")
+    }
     return (
         <div className='PageData'>
             <div className='PageData-data'>
@@ -18,7 +34,7 @@ const PageData = ({ data }) => {
                                 <h3>{item.name}</h3>
                                 <p>{item.nguyenlieu}</p>
                             </div>
-                            <section className="botao-1" style={{margin: "auto 0px"}}>
+                            <section className="botao-1" style={{margin: "auto 0px"}} onClick={() => handleChat(item)}>
                                 <button>
                                     <div className="icone__flexinha">
                                         <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
