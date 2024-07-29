@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { EDIT__USER } from '../redux/reduccer/rootPage';
 import { ADD__COMMENT, DELETE__COMMENT, EDIT__COMMENT } from '../redux/reduccer/rootTodo';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Chat() {
     const messageOne = useRef(null);
@@ -133,9 +134,35 @@ function Chat() {
                                         onChange={(e) => setEditerComment(e.target.value)}
                                     /> 
                                     :
-                                    <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
+                                        !item.img ?
+                                        <div className='App-box_image'>
+                                            {item.user === "Anikey" ? 
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}:</b><p>{item.comment}</p>
+                                            </div>
+                                            :
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
+                                                <p>{item.comment}</p><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
+                                            </div>}
+                                        </div>
+                                        :
+                                        <div className='App-box_image'>
+                                            {item.user === "Anikey" ?
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
+                                            :
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>:{item.user}</b>
+                                            }
+                                            <div className='-box_image-img'>
+                                                <LazyLoadImage src={item.img} alt={item.name} />
+                                            </div>
+                                            <div className='-box_image-delta'>
+                                                <h3>{item.comment}</h3>
+                                                <p>{item.nguyenlieu}</p>
+                                            </div>
+                                        </div>
+                                    }
                                     <div className="App-list_svg">
-                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
+                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)} style={{display: item.img ? "none" : "block"}}>
                                             <FontAwesomeIcon icon={faPenToSquare} />
                                         </div>
                                         <div className="App-list_svg__delete" onClick={() => deleteCMT(item)}>
@@ -149,7 +176,7 @@ function Chat() {
                                         <div className="App-list_svg__delete" onClick={() => deleteCMT(item)}>
                                             <FontAwesomeIcon icon={faTrashCan} />
                                         </div>
-                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)}>
+                                        <div className="App-list_svg__edit" onClick={() => openEditCMT(item)} style={{display: item.img ? "none" : "block"}}>
                                             <FontAwesomeIcon icon={faPenToSquare} />
                                         </div>
                                     </div>
@@ -159,7 +186,33 @@ function Chat() {
                                         onChange={(e) => setEditerComment(e.target.value)}
                                     /> 
                                     : 
-                                    <span><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)"}}>{item.user}:</b> {item.comment}</span>}
+                                        !item.img ? 
+                                        <div className='App-box_image'>
+                                            {item.user === "Anikey" ? 
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}: </b><p>{item.comment}</p>
+                                            </div>
+                                            :
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
+                                                <p>{item.comment}</p><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
+                                            </div>}
+                                        </div>
+                                        :
+                                        <div className='App-box_image'>
+                                            {item.user === "Anikey" ?
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
+                                            :
+                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>:{item.user}</b>
+                                            }
+                                            <div className='-box_image-img'>
+                                                <LazyLoadImage src={item.img} alt={item.name} />
+                                            </div>
+                                            <div className='-box_image-delta'>
+                                                <h3>{item.comment}</h3>
+                                                <p>{item.nguyenlieu}</p>
+                                            </div>
+                                        </div>
+                                    }
                                 </li>
                             }
                         </div>
