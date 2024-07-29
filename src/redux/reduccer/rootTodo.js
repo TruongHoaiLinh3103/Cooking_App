@@ -30,6 +30,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { DELETE__COMMENT, EDIT__COMMENT, ADD__COMMENT } = counterSlice.actions
+export const { DELETE__COMMENT, EDIT__COMMENT, ADD__COMMENT, EDIT__USER } = counterSlice.actions
 
 export default counterSlice.reducer

@@ -4,29 +4,36 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { memo } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ADD__COMMENT } from "../redux/reduccer/rootTodo";
+import { ADD__COMMENT, DELETE__COMMENT } from "../redux/reduccer/rootTodo";
 
-const PageData = ({ data }, props ) => {
+const PageData = ({ data }) => {
     const user = useSelector((state) => state.page.user);
+    const dataTodo = useSelector((state) => state.todoState.chat);
     const dispatch = useDispatch();
     const router = useNavigate();
     
     const handleChat = (item) => {
-        dispatch(ADD__COMMENT({
+        let obj = {
             id: item.id,
             comment: item.name,
             user: user,
             img: item.img,
             nguyenlieu: item.nguyenlieu
-        }));
-        router("/")
+        }
+        if(dataTodo.some((temp) => temp.id === item.id)){
+            dispatch(DELETE__COMMENT(obj)) && dispatch(ADD__COMMENT(obj));
+            router("/")
+        }else{
+            dispatch(ADD__COMMENT(obj));
+            router("/")
+        }
     }
     return (
         <div className='PageData'>
             <div className='PageData-data'>
                 {data.map((item) => {
                     return(
-                        <div className='PageData-data_item' key={item.id}>
+                        <div className='PageData-data_item' key={item.id} onClick={() => router(`/cooking/${item.id}`)}>
                             <div className='data_item-img'>
                                 <LazyLoadImage src={item.img} alt={item.name} />
                             </div>

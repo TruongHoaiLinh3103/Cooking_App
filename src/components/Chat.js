@@ -24,7 +24,7 @@ function Chat() {
             messageOne.current.focus();
         }else{
             dispatch(ADD__COMMENT({
-                id: Math.random() * 10000,
+                id: `a${Math.random() * 10000}`,
                 comment: messageOne.current.value,
                 user: "Anikey"
             }));
@@ -37,7 +37,7 @@ function Chat() {
                 messageOne.current.focus();
             }else{
                 dispatch(ADD__COMMENT({
-                    id: Math.random() * 10000,
+                    id: `a${Math.random() * 10000}`,
                     comment: messageOne.current.value,
                     user: "Anikey"
                 }))
@@ -50,7 +50,7 @@ function Chat() {
             messageTwo.current.focus();
         }else{
             dispatch(ADD__COMMENT({
-                id: Math.random() * 10000,
+                id: `a${Math.random() * 10000}`,
                 comment: messageTwo.current.value,
                 user: "SanSan"
             }));
@@ -63,7 +63,7 @@ function Chat() {
                 messageTwo.current.focus();
             }else{
                 dispatch(ADD__COMMENT({
-                    id: Math.random() * 10000,
+                    id: `a${Math.random() * 10000}`,
                     comment: messageTwo.current.value,
                     user: "SanSan"
                 }));
@@ -146,7 +146,7 @@ function Chat() {
                                             </div>}
                                         </div>
                                         :
-                                        <div className='App-box_image'>
+                                        <div className='App-box_image' onClick={() => router(`/cooking/${item.id}`)}>
                                             {item.user === "Anikey" ?
                                                 <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
                                             :
@@ -198,7 +198,7 @@ function Chat() {
                                             </div>}
                                         </div>
                                         :
-                                        <div className='App-box_image'>
+                                        <div className='App-box_image' onClick={() => router(`/cooking/${item.id}`)}>
                                             {item.user === "Anikey" ?
                                                 <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
                                             :
