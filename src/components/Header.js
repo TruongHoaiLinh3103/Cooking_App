@@ -8,11 +8,13 @@ const Header = ({setLoot}) => {
 
     return (
         <div className='Header'>
-            <div className='Header-Sort'>
+            <div className='Header-Input'>
                 <input type='text' placeholder='Tìm kiếm công thức?' ref={ref} onChange={() => setLoot(ref.current.value)}/>
-                <span style={{border: "1px solid black", marginLeft: "5px", width: "120px"}}>Danh Mục</span>
             </div>
-            <span style={{padding: "10px", width: "50px"}} onClick={() => router("/")}><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <div className='Header-Sort'>
+                <span style={{border: "1px solid black", width: "120px"}}>Danh Mục</span>
+                <span style={{width: "50px"}} onClick={() => router("/")}><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
+            </div>
         </div>
     );
 };
