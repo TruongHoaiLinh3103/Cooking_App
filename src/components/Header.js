@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import "../styles/header.scss";
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({setLoot}) => {
     const router = useNavigate();
+    const ref = useRef("");
+
     return (
         <div className='Header'>
             <div className='Header-Sort'>
-                <span><i className="fa-solid fa-utensils"></i></span>
-                <span><i className="fa-solid fa-glass-water-droplet"></i></span>
-                <input type='text' placeholder='search?'/>
-                <span><i className="fa-solid fa-filter"></i></span>
+                <input type='text' placeholder='Tìm kiếm công thức?' ref={ref} onChange={() => setLoot(ref.current.value)}/>
+                <span style={{border: "1px solid black", marginLeft: "5px"}}>Danh Mục</span>
             </div>
-            <span onClick={() => router("/")}>Thoát</span>
+            <span style={{padding: "0px 10px"}} onClick={() => router("/")}><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
         </div>
     );
 };
