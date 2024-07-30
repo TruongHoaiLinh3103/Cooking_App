@@ -10,7 +10,7 @@ import ic from "../assets/images/notCooking.png"
 
 const Layout = () => {
     const [max, setMax] = useState(() => {
-        axios.get(`https://zfakecooking.vercel.app/cooking`).then((res) => {
+        axios.get(`https://zfakecooking.vercel.app/cooking?${sort}&_sort=id&_order=desc`).then((res) => {
             const number = res.data.length/18;
             setMax(Math.ceil(number));
         });
