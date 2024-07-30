@@ -6,6 +6,7 @@ import {
 import Chat from "../components/Chat";
 import Layout from "../components/Layout";
 import Cooking from "../components/Cooking";
+import NotPage from "../components/NotPage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
             <Route path="/" element={<Chat />} />
             <Route path="/cooking" element={<Layout />} />
             <Route path="/cooking/:id" element={<Cooking />} />
-            {/* <Route path="*" element={<NotPage />}/> */}
+            <Route path="*" element={<NotPage />}/>
         </Routes>
     </Router>
   );
