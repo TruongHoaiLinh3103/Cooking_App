@@ -9,17 +9,17 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ic from "../assets/images/notCooking.png"
 
 const Layout = () => {
+    const sort = useSelector((state) => state.page.sort);
+    const [data, setData] = useState([]);
+    const page = useSelector((state) => state.page.page);
+    const dispatch = useDispatch();
+    const [search, setSearch] = useState("");
     const [max, setMax] = useState(() => {
         axios.get(`https://zfakecooking.vercel.app/cooking?${sort}&_sort=id&_order=desc`).then((res) => {
             const number = res.data.length/18;
             setMax(Math.ceil(number));
         });
     });
-    const sort = useSelector((state) => state.page.sort);
-    const [data, setData] = useState([]);
-    const page = useSelector((state) => state.page.page);
-    const dispatch = useDispatch();
-    const [search, setSearch] = useState("")
 
     const handleChange = (event, value) => {
         dispatch(EDIT__PAGE(value));
