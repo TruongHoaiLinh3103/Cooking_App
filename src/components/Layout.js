@@ -27,15 +27,17 @@ const Layout = () => {
 
     const handleSort = (item) => {
         dispatch(EDIT__SORT(item));
+        dispatch(EDIT__PAGE(1));
     };
 
     const setLoot = (Children) => {
-        setSearch(Children)
+        setSearch(Children);
+        dispatch(EDIT__PAGE(1));
     }
 
     const handleResetPage = () => {
         handleSort("");
-        setLoot("")
+        setLoot("");
     }
 
     useEffect(() => {

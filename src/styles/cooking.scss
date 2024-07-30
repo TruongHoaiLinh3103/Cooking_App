@@ -49,16 +49,30 @@
         }
     }
     .-body_ct-cb{
-        ._ct-cb-span{
-            +._ct-cb-span{
-                margin-top: 10px;
+        ._ct-cb{
+            max-height: 300px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            ._ct-cb-span{
+                +._ct-cb-span{
+                    margin-top: 10px;
+                }
             }
         }
     }
     .-body_ct-thuchien{
-        ._ct-thuchien-span{
-            +._ct-thuchien-span{
-                margin-top: 10px;
+        .-body_ct{
+            max-height: 300px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            ._ct-thuchien-span{
+                +._ct-thuchien-span{
+                    margin-top: 10px;
+                }
             }
         }
     }
