@@ -33,12 +33,12 @@ const PageData = ({ data }) => {
             <div className='PageData-data'>
                 {data.map((item) => {
                     return(
-                        <div className='PageData-data_item' key={item.id} onClick={() => router(`/cooking/${item.id}`)}>
+                        <div className='PageData-data_item' key={item.id}>
                             <div className='data_item-img'>
                                 <LazyLoadImage src={item.img} alt={item.name} />
                             </div>
                             <div className='data_item-detal'>
-                                <h3>{item.name}</h3>
+                                <h3 onClick={() => router(`/cooking/${item.id}`)}>{item.name}</h3>
                                 <p>{item.nguyenlieu}</p>
                             </div>
                             <section className="botao-1" style={{margin: "auto 0px"}} onClick={() => handleChat(item)}>

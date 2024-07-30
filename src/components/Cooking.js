@@ -3,11 +3,12 @@ import React from 'react';
 import "../styles/cooking.scss";
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Cooking = () => {
     const params = useParams();
+    const router = useNavigate();
     const [data, setData] = useState({})
     useEffect(() => {
         axios.get(`https://zfakecooking.vercel.app/cooking/${params.id}`).then((res) => {
@@ -43,6 +44,7 @@ const Cooking = () => {
                     </div>
                 </div>
             }
+            <span className='Cooking-pushHome' onClick={() => router("/")}><i className="fa-solid fa-house"></i></span>
         </div>
     );
 };
