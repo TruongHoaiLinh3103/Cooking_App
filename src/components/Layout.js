@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Header from './Header';
 import PageData from './PageData';
 import { Pagination } from '@mui/material';
@@ -25,15 +25,15 @@ const Layout = () => {
         dispatch(EDIT__PAGE(value));
     }; 
 
-    const handleSort = (item) => {
+    const handleSort = useCallback((item) => {
         dispatch(EDIT__SORT(item));
         dispatch(EDIT__PAGE(1));
-    };
+    },[]);
 
-    const setLoot = (Children) => {
+    const setLoot = useCallback((Children) => {
         setSearch(Children);
         dispatch(EDIT__PAGE(1));
-    }
+    },[])
 
     const handleResetPage = () => {
         handleSort("");
