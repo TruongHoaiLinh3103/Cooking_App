@@ -51,4 +51,56 @@
             }
         }
     }
+    .Header-Box{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: rgba(36, 34, 34, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .Header-delta{
+            width: 90%;
+            max-width: 500px;
+            max-height: 90%;
+            padding: 10px;
+            border: 2px inset black;
+            background-color: white;
+            border-radius: 10px;
+            .Header-delta_item{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                cursor: pointer;
+                h3{
+                    font-weight: 500;
+                }
+                +.Header-delta_item{
+                    border-top: 1px solid black;
+                }
+            }
+            .Header-delta_list{
+                .Header-delta_list-box{
+                    max-height: 210px;
+                    overflow-y: scroll;
+                    &::-webkit-scrollbar{
+                        display: none;
+                    }
+                    button{
+                        padding: 10px;
+                        background-color: #fff0;
+                        border: 1px solid rgb(96, 96, 239);
+                        border-radius: 100vh;
+                        cursor: pointer;
+                        +button{
+                            margin: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
