@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import Header from './Header';
 import PageData from './PageData';
 import { Pagination } from '@mui/material';
@@ -14,12 +14,7 @@ const Layout = () => {
     const page = useSelector((state) => state.page.page);
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
-    const [max, setMax] = useState(() => {
-        axios.get(`https://zfakecooking.vercel.app/cooking?${sort}&_sort=id&_order=desc`).then((res) => {
-            const number = res.data.length/18;
-            setMax(Math.ceil(number));
-        });
-    });
+    const [max, setMax] = useState();
 
     const handleChange = (event, value) => {
         dispatch(EDIT__PAGE(value));
@@ -51,6 +46,19 @@ const Layout = () => {
             })
         }
     },[page, search, sort])
+    useLayoutEffect(() => {
+        if(search){
+            axios.get(`https://zfakecooking.vercel.app/cooking?q=${search}${sort}&_sort=id&_order=desc`).then((res) => {
+                const number = res.data.length/18;
+                setMax(Math.ceil(number));
+            })
+        }else{
+            axios.get(`https://zfakecooking.vercel.app/cooking?${sort}&_sort=id&_order=desc`).then((res) => {
+                const number = res.data.length/18;
+                setMax(Math.ceil(number));
+            });
+        }
+    },[sort,search])
     return (
         <div style={{width: "100%", height: "100%"}}>
             <Header setLoot={setLoot} handleSort={handleSort}/>
