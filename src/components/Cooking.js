@@ -34,14 +34,14 @@ const Cooking = () => {
                         </div>
                         <div className='-body_ct-thuchien'>
                             <div className='-body_ct'>
-                                {data.thuchien.b1 && <div className='_ct-thuchien-span'><b>Bước 1: </b><p>{data.thuchien.b1}</p></div>}
-                                {data.thuchien.b2 && <div className='_ct-thuchien-span'><b>Bước 2: </b><p>{data.thuchien.b2}</p></div>}
-                                {data.thuchien.b3 && <div className='_ct-thuchien-span'><b>Bước 3: </b><p>{data.thuchien.b3}</p></div>}
-                                {data.thuchien.b4 && <div className='_ct-thuchien-span'><b>Bước 4: </b><p>{data.thuchien.b4}</p></div>}
-                                {data.thuchien.b5 && <div className='_ct-thuchien-span'><b>Bước 5: </b><p>{data.thuchien.b5}</p></div>}
-                                {data.thuchien.b6 && <div className='_ct-thuchien-span'><b>Bước 6: </b><p>{data.thuchien.b6}</p></div>}
-                                {data.thuchien.b7 && <div className='_ct-thuchien-span'><b>Bước 7: </b><p>{data.thuchien.b7}</p></div>}
-                                {data.thuchien.b8 && <div className='_ct-thuchien-span'><b>Bước 8: </b><p>{data.thuchien.b8}</p></div>}
+                                {data.thuchien.b1 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b1}</p></div>}
+                                {data.thuchien.b2 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b2}</p></div>}
+                                {data.thuchien.b3 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b3}</p></div>}
+                                {data.thuchien.b4 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b4}</p></div>}
+                                {data.thuchien.b5 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b5}</p></div>}
+                                {data.thuchien.b6 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b6}</p></div>}
+                                {data.thuchien.b7 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b7}</p></div>}
+                                {data.thuchien.b8 && <div className='_ct-thuchien-span'><b>- </b><p>{data.thuchien.b8}</p></div>}
                             </div>
                         </div>
                     </div>
