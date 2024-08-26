@@ -42,6 +42,9 @@ const Cooking = () => {
                                 {data.thuchien.b6 && <div className='_ct-thuchien-span'><b>Bước 6: </b><p>{data.thuchien.b6}</p></div>}
                                 {data.thuchien.b7 && <div className='_ct-thuchien-span'><b>Bước 7: </b><p>{data.thuchien.b7}</p></div>}
                                 {data.thuchien.b8 && <div className='_ct-thuchien-span'><b>Bước 8: </b><p>{data.thuchien.b8}</p></div>}
+                                {data.thuchien.b9 && <div className='_ct-thuchien-span'><b>Bước 9: </b><p>{data.thuchien.b9}</p></div>}
+                                {data.thuchien.b10 && <div className='_ct-thuchien-span'><b>Bước 10: </b><p>{data.thuchien.b10}</p></div>}
+                                {data.thuchien.b11 && <div className='_ct-thuchien-span'><b>Bước 11: </b><p>{data.thuchien.b11}</p></div>}
                             </div>
                         </div>
                     </div>
