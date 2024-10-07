@@ -45,7 +45,6 @@ const Header = ({setLoot, handleSort}) => {
                             <button onClick={() => handleSort("&menu=phache&list_like=Cocktail")}>Cocktail</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Gas")}>Gas</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Sữa")}>Sữa</button>
-                            <button onClick={() => handleSort("&menu=phache&list_like=Khác")}>Khác</button>
                         </div>
                     </div>
                     <div className='Header-delta_item' onClick={() => handleSort("&menu=nauan")}>
@@ -63,7 +62,6 @@ const Header = ({setLoot, handleSort}) => {
                             <button onClick={() => handleSort("&menu=nauan&list_like=Kho")}>Kho</button>
                             <button onClick={() => handleSort("&menu=nauan&list_like=Nước-chấm")}>Nước Chấm</button>
                             <button onClick={() => handleSort("&menu=nauan&list_like=Muối")}>Muối</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Khác")}>Khác</button>
                         </div>
                     </div>
                 </div>
