@@ -43,7 +43,7 @@ const Header = ({setLoot, handleSort}) => {
                             <button onClick={() => handleSort("&menu=phache&list_like=Rượu")}>Rượu</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Bia")}>Bia</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Cocktail")}>Cocktail</button>
-                            <button onClick={() => handleSort("&menu=phache&list_like=Gas")}>Nước uống có gas</button>
+                            <button onClick={() => handleSort("&menu=phache&list_like=Gas")}>Gas</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Sữa")}>Sữa</button>
                             <button onClick={() => handleSort("&menu=phache&list_like=Khác")}>Khác</button>
                         </div>
@@ -54,15 +54,15 @@ const Header = ({setLoot, handleSort}) => {
                     </div>
                     <div className='Header-delta_list'>
                         <div className='Header-delta_list-box'>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Nướng")}>Món Ăn Nướng</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Hấp")}>Món Ăn Hấp</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Ngọt")}>Món Ăn Ngọt</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Xào")}>Món Ăn Xào</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Chiên")}>Món Ăn Chiên</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Súp")}>Món Ăn Súp</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Kho")}>Món Ăn Kho</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Nướng")}>Nướng</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Hấp")}>Hấp</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Ngọt")}>Ngọt</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Xào")}>Xào</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Chiên")}>Chiên</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Súp")}>Súp</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Kho")}>Kho</button>
                             <button onClick={() => handleSort("&menu=nauan&list_like=Nước-chấm")}>Nước Chấm</button>
-                            <button onClick={() => handleSort("&menu=nauan&list_like=Muối")}>Món Muối</button>
+                            <button onClick={() => handleSort("&menu=nauan&list_like=Muối")}>Muối</button>
                             <button onClick={() => handleSort("&menu=nauan&list_like=Khác")}>Khác</button>
                         </div>
                     </div>
