@@ -52,7 +52,7 @@ function Chat() {
             dispatch(ADD__COMMENT({
                 id: `a${Math.random() * 10000}`,
                 comment: messageTwo.current.value,
-                user: "Dư Niệm An"
+                user: "An"
             }));
             messageTwo.current.value = "";
         }
@@ -65,7 +65,7 @@ function Chat() {
                 dispatch(ADD__COMMENT({
                     id: `a${Math.random() * 10000}`,
                     comment: messageTwo.current.value,
-                    user: "Dư Niệm An"
+                    user: "An"
                 }));
                 messageTwo.current.value = "";
             }
@@ -96,7 +96,7 @@ function Chat() {
         router("/cooking");
     }
     const handleCookingTwo = () => {
-        dispatch(EDIT__USER("Dư Niệm An"))
+        dispatch(EDIT__USER("An"))
         router("/cooking");
     }
 
