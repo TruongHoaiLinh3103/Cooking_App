@@ -26,7 +26,7 @@ function Chat() {
             dispatch(ADD__COMMENT({
                 id: `a${Math.random() * 10000}`,
                 comment: messageOne.current.value,
-                user: "Anikey"
+                user: "Mạt"
             }));
             messageOne.current.value = "";
         }
@@ -39,7 +39,7 @@ function Chat() {
                 dispatch(ADD__COMMENT({
                     id: `a${Math.random() * 10000}`,
                     comment: messageOne.current.value,
-                    user: "Anikey"
+                    user: "Mạt"
                 }))
                 messageOne.current.value = "";
             }
@@ -52,7 +52,7 @@ function Chat() {
             dispatch(ADD__COMMENT({
                 id: `a${Math.random() * 10000}`,
                 comment: messageTwo.current.value,
-                user: "SanSan"
+                user: "Dư Niệm An"
             }));
             messageTwo.current.value = "";
         }
@@ -65,7 +65,7 @@ function Chat() {
                 dispatch(ADD__COMMENT({
                     id: `a${Math.random() * 10000}`,
                     comment: messageTwo.current.value,
-                    user: "SanSan"
+                    user: "Dư Niệm An"
                 }));
                 messageTwo.current.value = "";
             }
@@ -92,11 +92,11 @@ function Chat() {
     }
 
     const handleCookingOne = () => {
-        dispatch(EDIT__USER("Anikey"))
+        dispatch(EDIT__USER("Mạt"))
         router("/cooking");
     }
     const handleCookingTwo = () => {
-        dispatch(EDIT__USER("SanSan"))
+        dispatch(EDIT__USER("Dư Niệm An"))
         router("/cooking");
     }
 
@@ -126,7 +126,7 @@ function Chat() {
                 {dataTodo.map((item) => {
                     return(
                         <div key={item.id} style={{marginTop: "10px"}}>
-                            {item.user === "Anikey" ?
+                            {item.user === "Mạt" ?
                                 <li key={item.id}>
                                     {inputComment === item.id ? 
                                     <textarea value={editerComment} 
@@ -136,21 +136,21 @@ function Chat() {
                                     :
                                         !item.img ?
                                         <div className='App-box_image'>
-                                            {item.user === "Anikey" ? 
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}:</b><p>{item.comment}</p>
+                                            {item.user === "Mạt" ? 
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}:</b><p>{item.comment}</p>
                                             </div>
                                             :
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
-                                                <p>{item.comment}</p><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>
+                                                <p>{item.comment}</p><b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
                                             </div>}
                                         </div>
                                         :
                                         <div className='App-box_image' onClick={() => router(`/cooking/${item.id}`)}>
-                                            {item.user === "Anikey" ?
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
+                                            {item.user === "Mạt" ?
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>{item.user}:</b>
                                             :
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>:{item.user}</b>
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>:{item.user}</b>
                                             }
                                             <div className='-box_image-img'>
                                                 <LazyLoadImage src={item.img} alt={item.name} />
@@ -188,21 +188,21 @@ function Chat() {
                                     : 
                                         !item.img ? 
                                         <div className='App-box_image'>
-                                            {item.user === "Anikey" ? 
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}: </b><p>{item.comment}</p>
+                                            {item.user === "Mạt" ? 
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginRight: "5px"}}>{item.user}: </b><p>{item.comment}</p>
                                             </div>
                                             :
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>
-                                                <p>{item.comment}</p><b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>
+                                                <p>{item.comment}</p><b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginLeft: "5px"}}> :{item.user}</b>
                                             </div>}
                                         </div>
                                         :
                                         <div className='App-box_image' onClick={() => router(`/cooking/${item.id}`)}>
-                                            {item.user === "Anikey" ?
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>{item.user}:</b>
+                                            {item.user === "Mạt" ?
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>{item.user}:</b>
                                             :
-                                                <b style={{color: item.user === "Anikey" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Anikey" ? "flex-start" : "flex-end"}}>:{item.user}</b>
+                                                <b style={{color: item.user === "Mạt" ? "black" : "rgb(139, 115, 209)", marginBottom: "10px", display: "flex", alignItems: 'center', justifyContent: item.user === "Mạt" ? "flex-start" : "flex-end"}}>:{item.user}</b>
                                             }
                                             <div className='-box_image-img'>
                                                 <LazyLoadImage src={item.img} alt={item.name} />
